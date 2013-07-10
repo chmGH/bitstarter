@@ -12,7 +12,7 @@ fs.readFileSync('index.html',function(err,data){
 });
 
 app.get('/', function(request, response) {
-  response.send(buffer.toString("utf-8");
+  response.send(buffer.toString("utf-8"));
 });
 
 var port = process.env.PORT || 5000;

@@ -53,7 +53,7 @@ var checkHtmlFile = function(htmlfile, checksfile) {
         var present = $(checks[ii]).length > 0;
         out[checks[ii]] = present;
     }
-    return out;
+    jOut(out);
 };
 
 var clone = function(fn) {
@@ -75,11 +75,9 @@ if(require.main == module) {
     if (program.url) {
 	rest.get(program.url).on('complete', function(result){
 	    var checkJson = checkHtmlFile(result, program.checks);
-	    jOut(checkJson);
 	});
     } else {
 	var checkJson = checkHtmlFile(fs.readFileSync(program.file), program.checks);
-	jOut(checkJson);
     };
 } else {
     exports.checkHtmlFile = checkHtmlFile;
